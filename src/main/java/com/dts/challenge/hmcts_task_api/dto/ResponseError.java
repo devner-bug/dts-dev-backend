@@ -1,0 +1,15 @@
+package com.dts.challenge.hmcts_task_api.dto;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class ResponseError<T>{
+    private T errors;
+    private T error;
+}
