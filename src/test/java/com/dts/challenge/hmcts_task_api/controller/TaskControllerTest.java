@@ -63,9 +63,9 @@ class TaskControllerTest {
                         post(BASE_URL)
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isConflict())
                 .andExpect(jsonPath("$.message").value("Duplicate entity"))
-                .andExpect(jsonPath("$.data.error.title").value("Task with title already exists"));
+                .andExpect(jsonPath("$.data.errors.title").value("Task with title already exists"));
     }
 
     @Test

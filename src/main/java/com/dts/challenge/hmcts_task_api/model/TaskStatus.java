@@ -1,5 +1,5 @@
 package com.dts.challenge.hmcts_task_api.model;
 
 public enum TaskStatus {
-    OPEN, IN_PROGRESS, COMPLETED
+    OPEN
 }
