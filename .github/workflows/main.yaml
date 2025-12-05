@@ -61,6 +61,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=${{secrets.SONAR_PROJECT_KEY}} -Dsonar.coverage.exclusions=**/dto/**,**/util/** -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
 
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build image locally
+        run: docker build -t app:latest .
+
       - name: Docker Scout Scan Image
         uses: docker/scout-action@v1.16.1
         with:
